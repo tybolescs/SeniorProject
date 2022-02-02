@@ -1,2 +1,2 @@
 # SeniorProject
-Data Analytics using Python Code to Assess NFL Players
+Data Analytics which Assess NFL Players with the use of Python
