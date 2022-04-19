@@ -71,5 +71,26 @@ get_rodgers_passing_stats()
 
 
 
+# jackson season statistics
+api_url = f"https://api.sportradar.us/nfl/official/trial/v7/en/players/{jackson_id}/profile.json?api_key={key}"
+response = requests.get(api_url)
+#print(response.json())
+import json
+rodgersdata = response.json()
+formatted_data = json.dumps(rodgersdata['seasons'][6]['teams'][0]['statistics']['passing'],indent=2)
+print(formatted_data)
+
+def get_jackson_passing_stats():
+  api_url = f"https://api.sportradar.us/nfl/official/trial/v7/en/players/{jackson_id}/profile.json?api_key={key}"
+  response = requests.get(api_url)
+  #print(response.json())
+  import json
+  jacksondata = response.json()['seasons'][6]['teams'][0]['statistics']['passing']
+  df_jackson = pd.json_normalize(jacksondata)
+  return(df_jackson)
+
+get_jackson_passing_stats()
+
+
 
 
